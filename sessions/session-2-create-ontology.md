@@ -10,7 +10,7 @@ Sessions in this lab:
 
 > **Preview notice:** Ontology in Microsoft Fabric is currently in [preview](https://learn.microsoft.com/fabric/fundamentals/preview). · Estimated time: ~50 minutes.
 
-> **About the screenshots:** The figures below are the reference screenshots from the official Microsoft Learn lab [Create an ontology with Fabric IQ](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/23-build-ontology-manually.html) that this session is based on. Your screen will look the same; item names show your `_User<NN>` suffix.
+> **About the screenshots:** Figures marked *live capture* are from a real run in a `FabricIQ-Handson-Shared` workspace; the remaining reference figures are from the official Microsoft Learn lab [Create an ontology with Fabric IQ](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/23-build-ontology-manually.html) that this session is based on. Your screen will look the same; item names show your `_User<NN>` suffix.
 
 ---
 
@@ -39,7 +39,7 @@ Replace `<UserNN>` with **your assigned username** (e.g. `user99` → `User99`).
 2. Open `LamnaHealthcareLH` → **Explorer → Tables** and confirm: `Hospitals`, `Departments`, `Rooms`, `Patients`, `VitalSignEquipment`.
 3. Open `LamnaHealthcareEH` → its KQL database and confirm the `VitalSignsReadings` table.
 
-![Lakehouse Tables section showing the five shared tables](images/23-lakehouse-tables-complete.png)
+![Lakehouse Tables section showing the five shared tables](images/s1-lakehouse-tables.png)
 *Figure: The shared `LamnaHealthcareLH` lakehouse with the five tables you'll bind to.*
 
 You'll model this structure:

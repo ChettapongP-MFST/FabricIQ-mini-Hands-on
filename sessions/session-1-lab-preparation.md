@@ -78,6 +78,12 @@ The notebook is **idempotent** — re-running reuses infrastructure, overwrites 
 
 > Both `LamnaHealthcareLH` and `LamnaHealthcareEH` should now be visible as items in the shared workspace.
 
+![Workspace item list showing LamnaHealthcareEH, LamnaHealthcareLH, and the SQL analytics endpoint](images/s1-workspace-items.png)
+*Figure: The shared workspace after provisioning — `LamnaHealthcareLH` (lakehouse + SQL endpoint) and `LamnaHealthcareEH` (eventhouse + KQL database).*
+
+![Lakehouse Explorer showing the five tables and Departments data](images/s1-lakehouse-tables.png)
+*Figure: `LamnaHealthcareLH` with the five tables (`Hospitals`, `Departments`, `Rooms`, `Patients`, `VitalSignEquipment`) populated with data.*
+
 ### Grant participants access
 
 1. In the workspace, select **Manage access**.

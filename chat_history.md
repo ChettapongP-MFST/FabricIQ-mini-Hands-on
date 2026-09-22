@@ -6,6 +6,16 @@ A running log so work can resume across sessions/devices. Newest entries at the 
 
 ## Session log
 
+### 2026-09-22 — Provision Session 1 via Fabric API + real screenshots
+
+- Renamed the worked example to `User99` in Sessions 2 & 3.
+- **Provisioned Session 1 via the Fabric REST API** (az token kept inside a script, never printed): created a job-friendly notebook (no `%pip`/`sempy`) and ran it via the RunNotebook job API. It created `LamnaHealthcareLH` (5 tables) + `LamnaHealthcareEH` (`VitalSignsReadings`, 15 rows). Verified via API.
+  - Note: the original `setup-shared-lakehouse.ipynb` failed as a headless job (`%pip install semantic-link` magic isn't supported in job runs). The repo notebook is still fine for interactive use; the API path uses a plain-Spark variant.
+- Captured **real screenshots** from the live workspace and wired them in:
+  - Session 1: workspace items list + lakehouse Tables view.
+  - Session 2 §2.0: replaced the reused lakehouse image with the real capture.
+- **Automation limit still applies:** Fabric editors are in sandboxed cross-origin iframes — screenshot-able but not clickable by automation. The API provisions artifacts; UI build steps can't be driven programmatically.
+
 ### 2026-09-22 — Add key screenshots to Sessions 2 & 3
 
 - Verified the target workspace (`FabricIQ-Handson-Shared`, group `f921a535-...`) is on **paid F8 capacity** (`fcapacity02`, West US 3) — not Trial; data agent supported.
