@@ -6,6 +6,15 @@ A running log so work can resume across sessions/devices. Newest entries at the 
 
 ## Session log
 
+### 2026-09-22 — Create User99 ontology + data agent via API; live captures
+
+- Created **`LamnaHealthcareOntology_User99`** via the Fabric REST API (proven ontology definition: 5 entity types + bindings + relationships, bound to the shared lakehouse/eventhouse). Fabric auto-created its Graph model + lakehouse. Processing succeeded.
+- Created **`LamnaHealthcareAgent_User99`** (type `DataAgent`) via the API (201). Item exists; data-source/instructions/test-chat config must be done in the UI (not API-drivable).
+- Captured **live screenshots** and wired them in:
+  - Session 2: the real ontology open in the editor with its five entity types (with a note that the automated build shows plural names vs. the manual singular names).
+  - Session 3: the real data agent configuration view (toolbar: Add data, Agent instructions, Test data agent, Publish).
+- Limits confirmed: in-editor dialogs (Welcome tour) and controls live in sandboxed iframes — screenshot-able but not clickable, so the ontology entity-overview and the data-agent GQL test can't be automated (those remain reference images).
+
 ### 2026-09-22 — Provision Session 1 via Fabric API + real screenshots
 
 - Renamed the worked example to `User99` in Sessions 2 & 3.

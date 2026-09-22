@@ -106,6 +106,11 @@ Repeat the process (add properties, then define the key) for each:
 ![Entity Types pane listing Hospital, Department, Room, Patient, VitalSignEquipment with the Hospital configuration](images/23-entity-types-complete.png)
 *Figure: All five entity types created, with the Hospital entity type's properties and key.*
 
+![LamnaHealthcareOntology_User99 open in the editor showing the five entity types in Explorer](images/s2-ontology-canvas.png)
+*Figure (live capture): `LamnaHealthcareOntology_User99` open in the ontology editor with its five entity types listed in the Explorer.*
+
+> The live capture above was provisioned via automation, so its entity types appear as plural names (`Hospitals`, `Departments`, …). When you follow the manual steps you'll use the singular names (`Hospital`, `Department`, …) — the structure is identical.
+
 ---
 
 ## 2.3 Create relationship types

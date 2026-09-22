@@ -10,7 +10,7 @@ Sessions in this lab:
 
 > Estimated time: ~30 minutes. Requires **paid Fabric Copilot capacity** (a Trial does not support data agents).
 
-> **About the screenshots:** The figure below is the reference screenshot from the official Microsoft Learn lab [Build a Fabric data agent with an ontology](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/28-build-data-agent-ontology.html) that this session is based on.
+> **About the screenshots:** Figures marked *live capture* are from a real run in a `FabricIQ-Handson-Shared` workspace; the reference figure is from the official Microsoft Learn lab [Build a Fabric data agent with an ontology](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/28-build-data-agent-ontology.html) that this session is based on.
 
 ---
 
@@ -39,6 +39,9 @@ You connect it to **your own** ontology from Session 2: `LamnaHealthcareOntology
 2. Search for `data agent` and select **Data agent**.
 3. Name it **`LamnaHealthcareAgent_<UserNN>`** (e.g. `LamnaHealthcareAgent_User99`) and select **Create**.
 4. The agent opens with an **Explorer** pane on the left and a **chat** pane on the right.
+
+![LamnaHealthcareAgent_User99 open in the data agent configuration view](images/s3-data-agent.png)
+*Figure (live capture): `LamnaHealthcareAgent_User99` in configuration view — the toolbar has **Add data**, **Agent instructions**, **Test data agent**, and **Publish**; the Explorer shows no data source added yet.*
 
 > Confirm the name includes **your** username.
 
