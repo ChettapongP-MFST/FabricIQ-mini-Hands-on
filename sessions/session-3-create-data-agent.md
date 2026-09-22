@@ -10,6 +10,8 @@ Sessions in this lab:
 
 > Estimated time: ~30 minutes. Requires **paid Fabric Copilot capacity** (a Trial does not support data agents).
 
+> **About the screenshots:** The figure below is the reference screenshot from the official Microsoft Learn lab [Build a Fabric data agent with an ontology](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/28-build-data-agent-ontology.html) that this session is based on.
+
 ---
 
 ## Your naming convention
@@ -82,6 +84,9 @@ For ontology data sources, instructions are the **only** tuning mechanism (examp
 ## 3.4 Test with natural-language questions
 
 Ask each question in the chat pane. After each answer, expand the **steps** dropdown to see the entity types/relationships used and the generated **GQL** query.
+
+![Chat response with the steps dropdown expanded showing the generated GQL query](images/28-GQL-generated.png)
+*Figure: Expanding the steps under an answer reveals the GQL the agent generated.*
 
 1. `How many ICU beds are occupied right now?`
    - Expect the agent to filter Room by the ICU Department and check occupancy.

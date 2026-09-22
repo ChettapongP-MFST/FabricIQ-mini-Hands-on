@@ -89,4 +89,4 @@ Shared source data: `Hospitals`, `Departments`, `Rooms`, `Patients`, `VitalSignE
 
 ## Attribution
 
-Adapted from the [MicrosoftLearning/mslearn-fabric](https://github.com/MicrosoftLearning/mslearn-fabric) hands-on labs (labs 23 and 27–28). The setup notebook provisions only the shared data sources, so each participant builds their own ontology and data agent.
+Adapted from the [MicrosoftLearning/mslearn-fabric](https://github.com/MicrosoftLearning/mslearn-fabric) hands-on labs (labs 23 and 27–28). The setup notebook provisions only the shared data sources, so each participant builds their own ontology and data agent. Reference screenshots in Sessions 2 and 3 are from those official Microsoft Learn labs.

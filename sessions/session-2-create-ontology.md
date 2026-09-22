@@ -10,6 +10,8 @@ Sessions in this lab:
 
 > **Preview notice:** Ontology in Microsoft Fabric is currently in [preview](https://learn.microsoft.com/fabric/fundamentals/preview). · Estimated time: ~50 minutes.
 
+> **About the screenshots:** The figures below are the reference screenshots from the official Microsoft Learn lab [Create an ontology with Fabric IQ](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/23-build-ontology-manually.html) that this session is based on. Your screen will look the same; item names show your `_User<NN>` suffix.
+
 ---
 
 ## Your naming convention
@@ -36,6 +38,9 @@ Replace `<UserNN>` with **your assigned username** (e.g. `user07` → `User07`).
 1. Open the **`FabricIQ-Handson-Shared`** workspace from **Workspaces** (🗇).
 2. Open `LamnaHealthcareLH` → **Explorer → Tables** and confirm: `Hospitals`, `Departments`, `Rooms`, `Patients`, `VitalSignEquipment`.
 3. Open `LamnaHealthcareEH` → its KQL database and confirm the `VitalSignsReadings` table.
+
+![Lakehouse Tables section showing the five shared tables](images/23-lakehouse-tables-complete.png)
+*Figure: The shared `LamnaHealthcareLH` lakehouse with the five tables you'll bind to.*
 
 You'll model this structure:
 
@@ -98,6 +103,9 @@ Repeat the process (add properties, then define the key) for each:
 
 ✅ You should now have **five** entity types, each with properties and a key.
 
+![Entity Types pane listing Hospital, Department, Room, Patient, VitalSignEquipment with the Hospital configuration](images/23-entity-types-complete.png)
+*Figure: All five entity types created, with the Hospital entity type's properties and key.*
+
 ---
 
 ## 2.3 Create relationship types
@@ -113,6 +121,9 @@ Follow the detailed steps for the first relationship, then use the table.
    - **Target entity type:** `Department`
 3. Select **Create**. A `contains` line connects Hospital to Department.
 
+![Add relationship dialog with contains, Hospital origin, Department target](images/23-add-new-relationship-dialog.png)
+*Figure: Adding the `contains` relationship from Hospital to Department.*
+
 ### Create the remaining four relationships
 
 | Relationship name | Origin | Target | Meaning |
@@ -123,6 +134,9 @@ Follow the detailed steps for the first relationship, then use the table.
 | `locatedIn` | VitalSignEquipment | Room | Equipment is located in rooms |
 
 ✅ Your canvas now shows five entity types connected by five relationships.
+
+![Ontology canvas showing entity types and relationship connections](images/23-manual-ontology-structure.png)
+*Figure: The completed ontology structure before data bindings.*
 
 ---
 
@@ -184,6 +198,9 @@ This entity needs **two** bindings. Do the static one first — the time-series 
    - `OxygenSaturation → OxygenSaturation`
    - `RespiratoryRate → RespiratoryRate`
 7. Select **Save**, confirm success, then **Home**.
+
+![Time-series binding configuration with static key and time-series properties](images/23-timeseries-binding-vitalsigns.png)
+*Figure: The VitalSignEquipment time-series binding to the eventhouse `VitalSignsReadings` table.*
 
 > **Why two bindings?** The lakehouse table gives each monitor its context (which patient, what type). The eventhouse table streams the measurements, attached to those monitors by `EquipmentId`.
 
@@ -297,6 +314,9 @@ Suggested relationship descriptions:
 3. You'll see *"Updating your ontology"* while Fabric processes the bindings. This can take **2–20 minutes** (heavier with 25 people building at once). Refresh the browser periodically.
 4. Once ready, you'll see the relationship graph, property charts, and an entity instances table.
 5. Select any room instance (e.g. `ICU-302`) to view its properties and connections.
+
+![Entity type overview with relationship graph, property charts, and entity instances table](images/23-entity-type-overview.png)
+*Figure: The entity type overview once background processing completes.*
 
 > **Tip:** For the VitalSignEquipment time-series charts, set the time-range filter (top-right) to **Last 3 days** — readings use today's date.
 

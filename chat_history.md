@@ -6,6 +6,15 @@ A running log so work can resume across sessions/devices. Newest entries at the 
 
 ## Session log
 
+### 2026-09-22 — Add key screenshots to Sessions 2 & 3
+
+- Verified the target workspace (`FabricIQ-Handson-Shared`, group `f921a535-...`) is on **paid F8 capacity** (`fcapacity02`, West US 3) — not Trial; data agent supported.
+- **Automation limitation found:** Fabric workload editors (notebook, ontology, data agent) render inside sandboxed cross-origin iframes (`pbides.powerbi.com`). Browser automation can pixel-screenshot them but cannot click/type inside them, so the editors can't be fully driven programmatically.
+- Per user direction, added **a few key reference screenshots** from the official Microsoft Learn labs (23 and 28) into `sessions/images/` and embedded them at the matching steps:
+  - Session 2: lakehouse tables, entity types complete, add-relationship dialog, ontology structure, time-series binding, entity type overview.
+  - Session 3: generated GQL.
+- Added an "About the screenshots" attribution note to both sessions and README.
+
 ### 2026-09-22 — Add semantic enrichment step
 
 - Added **Session 2 § 2.6 — Add descriptions and metadata (semantic enrichment)** covering descriptions/synonyms/metadata for entity types, and descriptions/metadata for properties and relationships, with healthcare sample values (steps verified against Microsoft Learn docs).
