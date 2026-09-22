@@ -27,13 +27,13 @@ Replace `<UserNN>` with **your assigned username** (e.g. `user07` → `User07`).
 ## Before you start
 
 - Your instructor completed Session 1, so `LamnaHealthcareLH` and `LamnaHealthcareEH` already exist with data.
-- You have **Contributor** access to the shared workspace and know your username.
+- You have **Contributor** access to the shared **`FabricIQ-Handson-Shared`** workspace and know your username.
 
 ---
 
 ## 2.0 Explore the shared data
 
-1. Open the shared workspace from **Workspaces** (🗇).
+1. Open the **`FabricIQ-Handson-Shared`** workspace from **Workspaces** (🗇).
 2. Open `LamnaHealthcareLH` → **Explorer → Tables** and confirm: `Hospitals`, `Departments`, `Rooms`, `Patients`, `VitalSignEquipment`.
 3. Open `LamnaHealthcareEH` → its KQL database and confirm the `VitalSignsReadings` table.
 
@@ -53,7 +53,7 @@ Hospital ──contains──> Department ──has──> Room
 
 ## 2.1 Create the ontology item
 
-1. In the shared workspace, select **+ New item**.
+1. In the **`FabricIQ-Handson-Shared`** workspace, select **+ New item**.
 2. Search for and select **Ontology (preview)**.
 3. Name it **`LamnaHealthcareOntology_<UserNN>`** (e.g. `LamnaHealthcareOntology_User07`) and select **Create**.
 4. The empty ontology canvas opens.

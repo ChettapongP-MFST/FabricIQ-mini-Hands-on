@@ -6,6 +6,10 @@ A running log so work can resume across sessions/devices. Newest entries at the 
 
 ## Session log
 
+### 2026-09-22 — Fix shared workspace name
+
+- Set the shared workspace name definitively to **`FabricIQ-Handson-Shared`** across README and Sessions 1–3 (previously shown only as an example).
+
 ### 2026-09-22 — Customer-ready sanitization
 
 **Goal:** Make the lab materials customer-ready and remove content customers don't need.

@@ -66,7 +66,7 @@ It combines two Microsoft Learn labs:
 
 ## Quick start
 
-1. **Instructor:** follow [Session 1](./sessions/session-1-lab-preparation.md) — create the shared workspace, run `setup/setup-shared-lakehouse.ipynb`, grant access, and hand out usernames.
+1. **Instructor:** follow [Session 1](./sessions/session-1-lab-preparation.md) — create the shared **`FabricIQ-Handson-Shared`** workspace, run `setup/setup-shared-lakehouse.ipynb`, grant access, and hand out usernames.
 2. **Participants:** work through [Session 2](./sessions/session-2-create-ontology.md) then [Session 3](./sessions/session-3-create-data-agent.md) using your assigned username.
 
 ---

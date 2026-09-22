@@ -45,7 +45,7 @@ Both are provisioned by the same notebook run — no separate steps are needed.
 
 1. Go to the [Microsoft Fabric home page](https://app.fabric.microsoft.com/home?experience=fabric) and sign in.
 2. Select **Workspaces** (🗇) → **New workspace**.
-3. Name it clearly, e.g. `FabricIQ-Handson-Shared`.
+3. Name it **`FabricIQ-Handson-Shared`**.
 4. Under **Advanced → License mode**, assign the **paid Fabric capacity** (not Trial).
 5. Create the workspace.
 

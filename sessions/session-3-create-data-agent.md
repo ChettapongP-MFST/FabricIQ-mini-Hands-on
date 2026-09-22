@@ -27,13 +27,13 @@ You connect it to **your own** ontology from Session 2: `LamnaHealthcareOntology
 ## Before you start
 
 - You completed Session 2 and your `LamnaHealthcareOntology_<UserNN>` shows entity instances in **Entity type overview** (wait for background processing to finish).
-- You're in the shared workspace with **Contributor** access.
+- You're in the shared **`FabricIQ-Handson-Shared`** workspace with **Contributor** access.
 
 ---
 
 ## 3.1 Create the data agent
 
-1. In the shared workspace, select **+ New item**.
+1. In the **`FabricIQ-Handson-Shared`** workspace, select **+ New item**.
 2. Search for `data agent` and select **Data agent**.
 3. Name it **`LamnaHealthcareAgent_<UserNN>`** (e.g. `LamnaHealthcareAgent_User07`) and select **Create**.
 4. The agent opens with an **Explorer** pane on the left and a **chat** pane on the right.
