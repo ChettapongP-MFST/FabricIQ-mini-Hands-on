@@ -16,11 +16,11 @@ Sessions in this lab:
 
 ## Your naming convention
 
-Replace `<UserNN>` with **your assigned username** (e.g. `user07` → `User07`).
+Replace `<UserNN>` with **your assigned username** (e.g. `user99` → `User99`).
 
-| You create | Name to use | Example (user07) |
+| You create | Name to use | Example (user99) |
 | --- | --- | --- |
-| Ontology | `LamnaHealthcareOntology_<UserNN>` | `LamnaHealthcareOntology_User07` |
+| Ontology | `LamnaHealthcareOntology_<UserNN>` | `LamnaHealthcareOntology_User99` |
 
 **Shared — read only, never rename/delete:** `LamnaHealthcareLH` (lakehouse), `LamnaHealthcareEH` (eventhouse).
 
@@ -60,7 +60,7 @@ Hospital ──contains──> Department ──has──> Room
 
 1. In the **`FabricIQ-Handson-Shared`** workspace, select **+ New item**.
 2. Search for and select **Ontology (preview)**.
-3. Name it **`LamnaHealthcareOntology_<UserNN>`** (e.g. `LamnaHealthcareOntology_User07`) and select **Create**.
+3. Name it **`LamnaHealthcareOntology_<UserNN>`** (e.g. `LamnaHealthcareOntology_User99`) and select **Create**.
 4. The empty ontology canvas opens.
 
 > Double-check the name includes **your** username before continuing.

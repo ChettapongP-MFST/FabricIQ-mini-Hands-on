@@ -16,11 +16,11 @@ Sessions in this lab:
 
 ## Your naming convention
 
-Replace `<UserNN>` with **your assigned username** (e.g. `user07` → `User07`).
+Replace `<UserNN>` with **your assigned username** (e.g. `user99` → `User99`).
 
-| You create | Name to use | Example (user07) |
+| You create | Name to use | Example (user99) |
 | --- | --- | --- |
-| Data agent | `LamnaHealthcareAgent_<UserNN>` | `LamnaHealthcareAgent_User07` |
+| Data agent | `LamnaHealthcareAgent_<UserNN>` | `LamnaHealthcareAgent_User99` |
 
 You connect it to **your own** ontology from Session 2: `LamnaHealthcareOntology_<UserNN>`.
 
@@ -37,7 +37,7 @@ You connect it to **your own** ontology from Session 2: `LamnaHealthcareOntology
 
 1. In the **`FabricIQ-Handson-Shared`** workspace, select **+ New item**.
 2. Search for `data agent` and select **Data agent**.
-3. Name it **`LamnaHealthcareAgent_<UserNN>`** (e.g. `LamnaHealthcareAgent_User07`) and select **Create**.
+3. Name it **`LamnaHealthcareAgent_<UserNN>`** (e.g. `LamnaHealthcareAgent_User99`) and select **Create**.
 4. The agent opens with an **Explorer** pane on the left and a **chat** pane on the right.
 
 > Confirm the name includes **your** username.
