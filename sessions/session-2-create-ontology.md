@@ -8,7 +8,7 @@ Sessions in this lab:
 2. **Session 2 — Create Ontology** *(this file)*
 3. [Session 3 — Create Data Agent](./session-3-create-data-agent.md)
 
-> **Preview notice:** Ontology in Microsoft Fabric is currently in [preview](https://learn.microsoft.com/fabric/fundamentals/preview). · Estimated time: ~40 minutes.
+> **Preview notice:** Ontology in Microsoft Fabric is currently in [preview](https://learn.microsoft.com/fabric/fundamentals/preview). · Estimated time: ~50 minutes.
 
 ---
 
@@ -218,7 +218,79 @@ For each: select the relationship line, set the source table (in the shared `Lam
 
 ---
 
-## 2.6 Preview your ontology
+## 2.6 Add descriptions and metadata (semantic enrichment)
+
+Entity types, properties, and relationships can carry **descriptions** and **metadata** that document your business vocabulary — what each concept means, alternative names, units, and sensitivity. This makes the ontology self-describing for people, governance, and downstream tools.
+
+> **Good to know:** In the current preview, the **data agent does not consume these enrichment fields** — you tune agent behavior with **Agent instructions** in Session 3. Enrichment is still valuable for human readability, discoverability, governance, and other Fabric IQ experiences, so it's a best practice to add it.
+
+Three enrichment types are available:
+
+| Object | Description | Synonyms | Additional metadata (key–value) |
+| --- | --- | --- | --- |
+| Entity type | ✔ | ✔ | ✔ |
+| Property | ✔ | — | ✔ |
+| Relationship type | ✔ | — | ✔ |
+
+### Enrich an entity type
+
+1. In the **Explorer** pane, select the **Hospital** entity type, then select **View entity type details** in the ribbon.
+2. In the **Metadata** section, select **Edit**.
+3. Add a **Description**, e.g. `A healthcare facility in the Lamna Healthcare network.`
+4. Add **Synonyms** (comma-separated), e.g. `Facility, Medical Center`.
+5. (Optional) Add **Additional metadata** key–value pairs, e.g. `Business owner: Operations`, `Sensitivity: Internal`.
+6. Select **Update**.
+
+Repeat for the other four entity types (suggested values — adjust as you like):
+
+| Entity type | Description | Synonyms | Example metadata |
+| --- | --- | --- | --- |
+| Department | A clinical unit within a hospital (ICU, Emergency, Surgical Services). | Unit, Ward | `Domain: Clinical operations` |
+| Room | A patient room within a department. | Bed, Ward room | `Domain: Clinical operations` |
+| Patient | A person currently admitted to the hospital. | Admission | `Sensitivity: Confidential` |
+| VitalSignEquipment | A monitoring device assigned to a patient that streams vital sign readings. | Monitor, Vital sign monitor | `Domain: Medical devices` |
+
+### Enrich a property
+
+1. On the **Configure** page of an entity type, open its **data binding configuration** (expand **Manage property bindings**).
+2. In the **Properties** section, select the **Tag** icon next to the property you want to enrich.
+3. Add a **Description** and, for numeric measures, an **Additional metadata** unit.
+4. Select **Update**.
+
+Suggested property enrichment:
+
+| Entity type → Property | Description | Example metadata |
+| --- | --- | --- |
+| Room → RoomType | Category of room, such as Critical Care, Emergency, or Post-Op. | — |
+| Patient → DateOfBirth | The patient's date of birth. | `Sensitivity: Confidential` |
+| VitalSignEquipment → HeartRate | Heart rate measurement from the monitor. | `unit: bpm` |
+| VitalSignEquipment → OxygenSaturation | Blood oxygen saturation measurement. | `unit: %` |
+| VitalSignEquipment → RespiratoryRate | Breathing rate measurement. | `unit: breaths/min` |
+
+### Enrich a relationship type
+
+1. On the canvas, select a relationship line (e.g. **contains**), then open its configuration.
+2. In the **Metadata** section, select **Edit**.
+3. Add a **Description** and, optionally, **Additional metadata**.
+4. Select **Update**.
+
+Suggested relationship descriptions:
+
+| Relationship | Description |
+| --- | --- |
+| contains | A hospital contains departments. |
+| has | A department has rooms. |
+| assignedTo | A patient is assigned to a room. |
+| monitors | Vital sign equipment monitors a patient. |
+| locatedIn | Vital sign equipment is located in a room. |
+
+> **Tip — writing good descriptions:** start with what the object represents, add business context, keep it to one to three sentences, and use consistent key names for metadata across your ontology.
+
+✅ Your ontology is now documented with descriptions and metadata.
+
+---
+
+## 2.7 Preview your ontology
 
 1. Select **Room** from the **Entity Types** list.
 2. In the ribbon, select **Entity type overview**.

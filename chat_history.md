@@ -6,6 +6,12 @@ A running log so work can resume across sessions/devices. Newest entries at the 
 
 ## Session log
 
+### 2026-09-22 — Add semantic enrichment step
+
+- Added **Session 2 § 2.6 — Add descriptions and metadata (semantic enrichment)** covering descriptions/synonyms/metadata for entity types, and descriptions/metadata for properties and relationships, with healthcare sample values (steps verified against Microsoft Learn docs).
+- Renumbered Preview to § 2.7; bumped Session 2 estimated time to ~50 min.
+- Noted honestly that the data agent preview doesn't consume enrichment fields (agent tuning stays in Session 3 instructions).
+
 ### 2026-09-22 — Fix shared workspace name
 
 - Set the shared workspace name definitively to **`FabricIQ-Handson-Shared`** across README and Sessions 1–3 (previously shown only as an example).
