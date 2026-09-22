@@ -88,7 +88,7 @@ The notebook is **idempotent** — re-running reuses infrastructure, overwrites 
 
 ## 1.2 Participants and naming convention
 
-Each participant gets a mock username `user01`–`user25`. Every item a participant creates is suffixed with their username in **PascalCase** (`User01`), so 25 ontologies and 25 data agents stay cleanly separated in one workspace.
+Each participant is assigned a username `user01`–`user25`. Every item a participant creates is suffixed with their username in **PascalCase** (`User01`), so 25 ontologies and 25 data agents stay cleanly separated in one workspace.
 
 ### Naming convention
 
@@ -106,7 +106,7 @@ Each participant gets a mock username `user01`–`user25`. Every item a particip
 
 > Rule: a name **with** `_UserNN` belongs to a participant; a name **without** it is shared and read-only.
 
-### Participant roster (mockup)
+### Participant roster
 
 | Participant | Username | Ontology name | Data agent name |
 | --- | --- | --- | --- |

@@ -6,6 +6,15 @@ A running log so work can resume across sessions/devices. Newest entries at the 
 
 ## Session log
 
+### 2026-09-22 — Customer-ready sanitization
+
+**Goal:** Make the lab materials customer-ready and remove content customers don't need.
+
+**Changes:**
+- Neutralized informal wording ("mock/mockup" → "assigned usernames"/"roster") in Session 1 and the log.
+- Softened attribution/derivation wording in the README and setup notebook so materials read as a standalone deliverable.
+- Removed internal-only notes and speculative next steps from this log.
+
 ### 2026-09-22 — Initial build
 
 **Goal:** Build a hands-on lab combining two Microsoft Learn labs into a Fabric IQ + Data Agents exercise for **25 participants** sharing **one Fabric workspace** and the **same shared** lakehouse `LamnaHealthcareLH` (+ eventhouse `LamnaHealthcareEH`), where each participant creates their **own** ontology and data agent.
@@ -38,7 +47,7 @@ setup/
 - Ontology: `LamnaHealthcareOntology_UserNN` (e.g. `LamnaHealthcareOntology_User01`)
 - Data agent: `LamnaHealthcareAgent_UserNN` (e.g. `LamnaHealthcareAgent_User01`)
 - Shared, read-only: `LamnaHealthcareLH` (lakehouse), `LamnaHealthcareEH` (eventhouse)
-- Participants: mock usernames `user01`–`user25`
+- Participants: usernames `user01`–`user25`
 
 **Key facts / decisions:**
 - Lakehouse tables are **PascalCase**: `Hospitals`, `Departments`, `Rooms`, `Patients`, `VitalSignEquipment` (written by the notebook via `enable_schema=False`). Session 2 binding steps reference these exact names.
@@ -53,7 +62,5 @@ setup/
 - Default branch: `main`. Also pushed identical `master` branch.
 - Latest commit: "Add FabricIQ mini hands-on lab in 3 sessions with shared LH+EH setup notebook".
 
-**Open / possible next steps:**
-- Original first user message was truncated at "the naming convention must…" — confirm whether a different convention (e.g. real aliases) is wanted.
-- Optionally set `master` as default branch and/or delete `main` (not yet done — awaiting confirmation).
+**Next steps:**
 - Optionally add screenshots to the session docs.
