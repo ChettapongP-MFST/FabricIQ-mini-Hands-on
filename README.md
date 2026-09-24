@@ -71,19 +71,36 @@ It combines two Microsoft Learn labs:
 
 ---
 
-## Data model
+## Ontology model
 
-```
-Hospital ──contains──> Department ──has──> Room
-                                            ^
-                          Patient ──assignedTo──┘
-                             ^
-   VitalSignEquipment ──monitors──┘
-   VitalSignEquipment ──locatedIn──> Room
-   VitalSignEquipment (time-series) ──> VitalSignsReadings (eventhouse)
+```mermaid
+flowchart TB
+    subgraph ontology["Lamna Healthcare ontology"]
+        hospital["Hospital<br/>Source: Hospitals"]
+        department["Department<br/>Source: Departments"]
+        room["Room<br/>Source: Rooms"]
+        patient["Patient<br/>Source: Patients"]
+        equipment["VitalSignEquipment<br/>Source: VitalSignEquipment"]
+
+        hospital -->|contains| department
+        department -->|has| room
+        patient -->|assignedTo| room
+        equipment -->|monitors| patient
+
+    end
+    classDef facility fill:#E6F4F1,stroke:#147D70,color:#123C35
+    classDef person fill:#EAF2FF,stroke:#3266AD,color:#18365E
+    classDef device fill:#FFF4D6,stroke:#997319,color:#59420D
+    classDef telemetry fill:#F1F3F5,stroke:#66717D,color:#28323C
+    class hospital,department,room facility
+    class patient person
+    class equipment device
+    class readings telemetry
 ```
 
-Shared source data: `Hospitals`, `Departments`, `Rooms`, `Patients`, `VitalSignEquipment` (lakehouse) and `VitalSignsReadings` (eventhouse).
+**Solid arrows** show the five directed ontology relationships. The **dashed arrow** shows the time-series data binding, not an additional relationship type.
+
+All five entity types use static data from the shared **`LamnaHealthcareLH`** lakehouse. **`VitalSignEquipment`** also binds to **`VitalSignsReadings`** in **`LamnaHealthcareEH`**, matching readings by `EquipmentId` and using `Timestamp` for time-series data.
 
 ---
 
