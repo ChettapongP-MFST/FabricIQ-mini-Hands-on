@@ -40,8 +40,8 @@ You connect it to **your own** ontology from Session 2: `LamnaHealthcareOntology
 3. Name it **`LamnaHealthcareAgent_<UserNN>`** (e.g. `LamnaHealthcareAgent_User99`) and select **Create**.
 4. The agent opens with an **Explorer** pane on the left and a **chat** pane on the right.
 
-![LamnaHealthcareAgent_User99 with no data added and the Add data menu open to Data source](images/s3-user99-add-data-menu.png)
-*Figure (live capture): The new agent before a source is added. Use **Add data → Data source** to begin the next step.*
+![Create data agent dialog with LamnaHealthcareAgent_User99 entered in the FabricIQ-mini-Hands-on workspace](images/s3-user99-create-data-agent.png)
+*Figure (live capture): Naming the agent `LamnaHealthcareAgent_User99` before selecting **Create** (step 3).*
 
 > Confirm the name includes **your** username.
 
@@ -53,6 +53,9 @@ You connect it to **your own** ontology from Session 2: `LamnaHealthcareOntology
 2. In the search box, type **`LamnaHealthcareOntology_<UserNN>`** — be sure to pick **your own** ontology, not another participant's.
 3. Select it and select **Add**.
 4. In the **Explorer** pane, verify all five entity types appear: Hospital, Department, Room, Patient, VitalSignEquipment.
+
+![LamnaHealthcareAgent_User99 with no data added and the Add data menu open to Data source](images/s3-user99-add-data-menu.png)
+*Figure (live capture): Opening **Add data → Data source** to connect the agent to your ontology (step 1).*
 
 ![OneLake catalog with LamnaHealthcareOntology_User99 selected as the data source](images/s3-user99-select-ontology.png)
 *Figure (live capture): Selecting your own ontology before choosing **Add** (steps 2–3).*
