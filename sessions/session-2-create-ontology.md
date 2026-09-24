@@ -10,7 +10,7 @@ Sessions in this lab:
 
 > **Preview notice:** Ontology in Microsoft Fabric is currently in [preview](https://learn.microsoft.com/fabric/fundamentals/preview). · Estimated time: ~50 minutes.
 
-> **About the screenshots:** Figures marked *live capture* are from a real run in a `FabricIQ-Handson-Shared` workspace; the remaining reference figures are from the official Microsoft Learn lab [Create an ontology with Fabric IQ](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/23-build-ontology-manually.html) that this session is based on. Your screen will look the same; item names show your `_User<NN>` suffix.
+> **About the screenshots:** Figures marked *live capture* show the September 24, 2026 run of `LamnaHealthcareOntology_User99` in the `FabricIQ-mini-Hands-on` workspace. Use that workspace wherever these instructions mention `FabricIQ-Handson-Shared`. Reference figures are from the official Microsoft Learn lab [Create an ontology with Fabric IQ](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/23-build-ontology-manually.html). UI labels may vary; use your assigned `_User<NN>` suffix. All screenshot files used here are stored in `sessions/images`.
 
 ---
 
@@ -39,8 +39,8 @@ Replace `<UserNN>` with **your assigned username** (e.g. `user99` → `User99`).
 2. Open `LamnaHealthcareLH` → **Explorer → Tables** and confirm: `Hospitals`, `Departments`, `Rooms`, `Patients`, `VitalSignEquipment`.
 3. Open `LamnaHealthcareEH` → its KQL database and confirm the `VitalSignsReadings` table.
 
-![Lakehouse Tables section showing the five shared tables](images/s1-lakehouse-tables.png)
-*Figure: The shared `LamnaHealthcareLH` lakehouse with the five tables you'll bind to.*
+![LamnaHealthcareLH Explorer listing five tables with all ten Rooms rows displayed](images/s2-shared-lakehouse-rooms.png)
+*Figure (live capture): The shared lakehouse tables and the ten rows in `Rooms`.*
 
 You'll model this structure:
 
@@ -64,6 +64,9 @@ Hospital ──contains──> Department ──has──> Room
 4. The empty ontology canvas opens.
 
 > Double-check the name includes **your** username before continuing.
+
+![New Ontology dialog with LamnaHealthcareOntology_User99 and FabricIQ-mini-Hands-on selected](images/s2-create-ontology-user99.png)
+*Figure (live capture): Creating the User99 ontology in the current lab workspace.*
 
 ---
 
@@ -90,6 +93,18 @@ You'll create five entity types. Follow the detailed steps for **Hospital**, the
 7. Select **Define entity type key**, choose **HospitalId**, and select **Save**.
 8. Select **Home** to return to the canvas.
 
+![Add Entity Type dialog with Hospital entered as the entity type name](images/s2-add-hospital-entity.png)
+*Figure (live capture): Adding the first entity type, `Hospital`.*
+
+![Hospital Manage property bindings menu with Add properties selected](images/s2-hospital-property-menu.png)
+*Figure (live capture): Opening **Manage property bindings → Add properties** (step 4).*
+
+![Add properties to Hospital dialog showing HospitalId as Integer and HospitalName, City, and State as String](images/s2-hospital-properties.png)
+*Figure (live capture): Hospital's four properties and their types before saving (steps 5–6).*
+
+![Add or edit key dialog with HospitalId selected as the Hospital entity type key](images/s2-hospital-key.png)
+*Figure (live capture): Selecting `HospitalId` as the entity type key (step 7).*
+
 ### Create the remaining four entity types
 
 Repeat the process (add properties, then define the key) for each:
@@ -104,12 +119,7 @@ Repeat the process (add properties, then define the key) for each:
 ✅ You should now have **five** entity types, each with properties and a key.
 
 ![Entity Types pane listing Hospital, Department, Room, Patient, VitalSignEquipment with the Hospital configuration](images/23-entity-types-complete.png)
-*Figure: All five entity types created, with the Hospital entity type's properties and key.*
-
-![LamnaHealthcareOntology_User99 open in the editor showing the five entity types in Explorer](images/s2-ontology-canvas.png)
-*Figure (live capture): `LamnaHealthcareOntology_User99` open in the ontology editor with its five entity types listed in the Explorer.*
-
-> The live capture above was provisioned via automation, so its entity types appear as plural names (`Hospitals`, `Departments`, …). When you follow the manual steps you'll use the singular names (`Hospital`, `Department`, …) — the structure is identical.
+*Figure (reference): All five entity types created, with the Hospital entity type's properties and key.*
 
 ---
 
@@ -127,7 +137,10 @@ Follow the detailed steps for the first relationship, then use the table.
 3. Select **Create**. A `contains` line connects Hospital to Department.
 
 ![Add relationship dialog with contains, Hospital origin, Department target](images/23-add-new-relationship-dialog.png)
-*Figure: Adding the `contains` relationship from Hospital to Department.*
+*Figure (reference): Adding the `contains` relationship from Hospital to Department.*
+
+![Hospital connected to Department by contains with all five entity types listed in Explorer](images/s2-hospital-contains-department.png)
+*Figure (live capture): The saved `contains` relationship from Hospital to Department.*
 
 ### Create the remaining four relationships
 
@@ -141,7 +154,7 @@ Follow the detailed steps for the first relationship, then use the table.
 ✅ Your canvas now shows five entity types connected by five relationships.
 
 ![Ontology canvas showing entity types and relationship connections](images/23-manual-ontology-structure.png)
-*Figure: The completed ontology structure before data bindings.*
+*Figure (reference): The completed ontology structure before data bindings.*
 
 ---
 
@@ -160,6 +173,18 @@ The schema is a template until you bind it to the **shared** lakehouse and event
    - Key: `HospitalId → HospitalId`
    - `HospitalName → HospitalName`, `City → City`, `State → State`
 7. Select **Save**, confirm success, then **Cancel** → **Home**.
+
+![Hospital canvas menu with Bind data selected](images/s2-hospital-bind-data-menu.png)
+*Figure (live capture): Opening Hospital's **Bind data** command (step 1).*
+
+![Add data binding menu with Lakehouse table selected](images/s2-add-lakehouse-binding.png)
+*Figure (live capture): Choosing a lakehouse table as the static source (step 2).*
+
+![OneLake table selector with Hospitals selected under LamnaHealthcareLH](images/s2-select-hospitals-table.png)
+*Figure (live capture): Selecting the shared `Hospitals` table (steps 3–4).*
+
+![Hospital binding mapping HospitalId as the key and City, HospitalName, and State to matching properties](images/s2-hospital-static-mapping.png)
+*Figure (live capture): Checking the key and property mappings before saving (steps 6–7).*
 
 ### Bind Department, Room, and Patient (static only)
 
@@ -204,8 +229,11 @@ This entity needs **two** bindings. Do the static one first — the time-series 
    - `RespiratoryRate → RespiratoryRate`
 7. Select **Save**, confirm success, then **Home**.
 
-![Time-series binding configuration with static key and time-series properties](images/23-timeseries-binding-vitalsigns.png)
-*Figure: The VitalSignEquipment time-series binding to the eventhouse `VitalSignsReadings` table.*
+![Add Eventhouse data source dialog selecting VitalSignsReadings from LamnaHealthcareEH](images/s2-select-vitalsigns-eventhouse.png)
+*Figure (live capture): Adding `VitalSignsReadings` from the shared eventhouse after the static equipment binding (steps 1–3).*
+
+![VitalSignEquipment time-series binding showing EquipmentId key mapping, Timestamp selection, and vital-sign property mappings](images/s2-vitalsigns-timeseries-mapping.png)
+*Figure (live capture): Configuring the time-series timestamp, equipment key, and measurement mappings before saving (steps 4–7).*
 
 > **Why two bindings?** The lakehouse table gives each monitor its context (which patient, what type). The eventhouse table streams the measurements, attached to those monitors by `EquipmentId`.
 
@@ -321,7 +349,7 @@ Suggested relationship descriptions:
 5. Select any room instance (e.g. `ICU-302`) to view its properties and connections.
 
 ![Entity type overview with relationship graph, property charts, and entity instances table](images/23-entity-type-overview.png)
-*Figure: The entity type overview once background processing completes.*
+*Figure (reference): The entity type overview once background processing completes.*
 
 > **Tip:** For the VitalSignEquipment time-series charts, set the time-range filter (top-right) to **Last 3 days** — readings use today's date.
 

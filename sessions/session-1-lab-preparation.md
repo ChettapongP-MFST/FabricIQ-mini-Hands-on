@@ -20,15 +20,37 @@ Sessions in this lab:
 Enable in **Admin portal → Tenant settings** ([Ontology settings](https://learn.microsoft.com/fabric/iq/ontology/overview-tenant-settings) · [Data agent settings](https://learn.microsoft.com/fabric/data-science/data-agent-tenant-settings)):
 
 Ontology (Fabric IQ):
+
 - **Enable Ontology item (preview)**
-- **Users can create Graph (preview)**
 
 Data agent (Copilot):
+
+- **Users can use Copilot, AI Agents and other AI experiences powered by Azure OpenAI**
 - **Capacities can be designated as Fabric Copilot capacities**
 - **Data sent to Azure OpenAI can be processed outside your capacity's geographic region…** *(only if your capacity is outside the EU/US)*
 - **Data sent to Azure OpenAI can be stored outside your capacity's geographic region…** *(only if your capacity is outside the EU/US)*
 
-> Tenant setting changes can take up to ~15 minutes to apply.
+> Tenant setting changes can take up to one hour to apply. Current ontology documentation does not list a separate Graph tenant switch.
+
+### Current instructor setup (2026-09-24)
+
+Use the existing [FabricIQ-mini-Hands-on workspace](https://app.fabric.microsoft.com/groups/eacd516f-daa6-4084-a26a-af1acd5c3222/list?experience=fabric-developer) for this delivery. Do not create or rename a workspace to match the example name below. In Sessions 2 and 3, use this workspace wherever `FabricIQ-Handson-Shared` is mentioned.
+
+| Check | Status |
+| --- | --- |
+| Fabric identity | `chettapongp@MngEnvMCAP702933.onmicrosoft.com`; workspace Admin verified |
+| Capacity | `fabcapacitydemo`, active paid F8, West US 3; no capacity resize performed |
+| Tenant settings | Ontology, Copilot/Azure OpenAI, and Copilot-capacity designation switches enabled; no tenant settings changed |
+| Shared infrastructure | `LamnaHealthcareLH`, its SQL endpoint, `LamnaHealthcareEH`, and its KQL database created |
+| Data loading | `provision-shared-data-api` completed successfully; all six row-count assertions passed |
+| Participant access | `ttb_grp` granted Contributor with instructor approval; participant membership still required |
+| Session 3 readiness | Confirm the capacity's actual Fabric Copilot designation and any capacity-level overrides before class |
+
+F8 is below this guide's F16+ recommendation for 25 concurrent participants. Stagger starts or have the capacity administrator review sizing. The screenshots below show the earlier reference environment, not proof of this workspace's current state.
+
+Verified counts: `Hospitals` 1, `Departments` 3, `Rooms` 10, `Patients` 5, `VitalSignEquipment` 5, and `VitalSignsReadings` 15. The completed job wrote its verification report to `LamnaHealthcareLH/Files/session1-validation.json`. All five Delta tables were also verified through the lakehouse Tables API.
+
+The API-run notebook is `provision-shared-data-api` (`57cc62de-c0d3-4b6e-9987-fa7ae8c7eae4`); successful job ID: `37b42831-b69f-4943-8619-3c14d7a982f5`. It uses the repository's sample data cells with job-safe initialization instead of `%pip`, followed by explicit row-count assertions. The payload builder is [prepare-session1-job.ps1](../setup/prepare-session1-job.ps1); it only prepares a request file, and requires existing resource IDs. Re-running the data notebook overwrites the five lakehouse tables, so do not rerun it during participant work without coordination.
 
 ---
 
@@ -87,8 +109,10 @@ The notebook is **idempotent** — re-running reuses infrastructure, overwrites 
 ### Grant participants access
 
 1. In the workspace, select **Manage access**.
-2. Select **Add people or groups** and add all 25 participants (or an M365 group).
+2. Select **Add people or groups** and add the participant security group (for this delivery, `ttb_grp`) or all 25 participants.
 3. Assign the **Contributor** role — the minimum that lets them create their own items *and* read the shared data. (Do **not** use Viewer.)
+
+For this delivery, the group assignment is complete. Add the actual participant accounts or invited guests to `ttb_grp` using the designated Azure admin account, then test one participant's access. The roster below assigns lab suffixes; it does not create Microsoft Entra accounts or invite guests.
 
 ---
 
@@ -110,7 +134,7 @@ Each participant is assigned a username `user01`–`user25`. Every item a partic
 | `LamnaHealthcareLH` | Lakehouse (data source) |
 | `LamnaHealthcareEH` | Eventhouse (time-series data source) |
 
-> Rule: a name **with** `_UserNN` belongs to a participant; a name **without** it is shared and read-only.
+> Rule: a name **with** `_UserNN` belongs to a participant; a name **without** it is shared and must be treated as read-only. This is a lab convention, not an enforced permission boundary: Contributors can modify shared workspace items.
 
 ### Participant roster
 
@@ -149,15 +173,15 @@ Each participant is assigned a username `user01`–`user25`. Every item a partic
 ## Capacity & housekeeping notes
 
 - **25 ontologies** each spawn a background **Graph** item and processing. Expect heavy capacity load when many build at once — **F16+** is recommended for a class of 25. Consider staggering starts.
-- Participant bindings only **read** the shared data; nothing they do changes the shared tables.
+- Participant bindings read the shared data, but Contributor permissions also allow changes to shared items. Participants must not edit or delete those items.
 - **Do not** delete `LamnaHealthcareLH` or `LamnaHealthcareEH` until everyone has finished.
-- **Cleanup after the session:** remove the whole workspace (**Workspace settings → General → Remove this workspace**).
+- **Cleanup:** retain both lab environments and their artifacts per the instructor's instruction. Do not delete a workspace or shared item without separate explicit approval.
 
 ## Troubleshooting
 
 | Symptom | Fix |
 | --- | --- |
 | Notebook Step 0 fails creating the eventhouse | Re-run the cell; eventhouse init is occasionally slow. |
-| Participant can't create an Ontology item | Confirm the two Ontology preview tenant settings are on and the user has **Contributor**. |
+| Participant can't create an Ontology item | Confirm the Ontology preview tenant setting applies to the user and the user has **Contributor**. |
 | Data agent option missing / Copilot errors | Confirm **paid** capacity designated as **Fabric Copilot capacity** (Trial won't work). |
 | Time-series charts empty | Set the ontology preview time filter to **Last 3 days** — readings use today's date. |
