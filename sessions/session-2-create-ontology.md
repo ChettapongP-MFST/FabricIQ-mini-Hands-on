@@ -157,19 +157,18 @@ Follow the detailed steps for the first relationship, then use the table.
 ![Hospital connected to Department by contains with all five entity types listed in Explorer](images/s2-hospital-contains-department.png)
 *Figure (live capture): The saved `contains` relationship from Hospital to Department.*
 
-### Create the remaining four relationships
+### Create the remaining three relationships
 
 | Relationship name | Origin | Target | Meaning |
 | --- | --- | --- | --- |
 | `has` | Department | Room | Departments have rooms |
 | `assignedTo` | Patient | Room | Patients are assigned to rooms |
 | `monitors` | VitalSignEquipment | Patient | Equipment monitors patients |
-| `locatedIn` | VitalSignEquipment | Room | Equipment is located in rooms |
 
-✅ Your canvas now shows five entity types connected by five relationships.
+✅ Your canvas now shows five entity types connected by four relationships.
 
 ![Ontology canvas showing entity types and relationship connections](images/23-manual-ontology-structure.png)
-*Figure (reference): The completed ontology structure before data bindings.*
+*Figure (reference): The `assignedTo` and `has` relationships connecting Patient and Department to Room.*
 
 ---
 
@@ -268,7 +267,7 @@ Tell each relationship which table links the instances. Do the first, then use t
    - **Target (Department):** select **DepartmentId**
 3. Select **Save**, confirm success, then **Cancel** → **Home**.
 
-### Configure the remaining four relationships
+### Configure the remaining three relationships
 
 For each: select the relationship line, set the source table (in the shared `LamnaHealthcareLH`) and the two column mappings, then **Save**.
 
@@ -277,7 +276,6 @@ For each: select the relationship line, set the source table (in the shared `Lam
 | `has` (Department → Room) | `Rooms` | Department: DepartmentId | Room: RoomId |
 | `assignedTo` (Patient → Room) | `Patients` | Patient: PatientId | Room: CurrentRoomId |
 | `monitors` (VitalSignEquipment → Patient) | `VitalSignEquipment` | VitalSignEquipment: EquipmentId | Patient: PatientId |
-| `locatedIn` (VitalSignEquipment → Room) | `Patients` | VitalSignEquipment: PatientId | Room: CurrentRoomId |
 
 ✅ All relationships now have source data.
 
@@ -347,7 +345,6 @@ Suggested relationship descriptions:
 | has | A department has rooms. |
 | assignedTo | A patient is assigned to a room. |
 | monitors | Vital sign equipment monitors a patient. |
-| locatedIn | Vital sign equipment is located in a room. |
 
 > **Tip — writing good descriptions:** start with what the object represents, add business context, keep it to one to three sentences, and use consistent key names for metadata across your ontology.
 
