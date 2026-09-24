@@ -10,7 +10,7 @@ Sessions in this lab:
 
 > Estimated time: ~30 minutes. Requires **paid Fabric Copilot capacity** (a Trial does not support data agents).
 
-> **About the screenshots:** Figures marked *live capture* are from a real run in a `FabricIQ-Handson-Shared` workspace; the reference figure is from the official Microsoft Learn lab [Build a Fabric data agent with an ontology](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/28-build-data-agent-ontology.html) that this session is based on.
+> **About the screenshots:** Figures marked *live capture* show the September 24, 2026 run of `LamnaHealthcareAgent_User99` in the `FabricIQ-mini-Hands-on` workspace. Use that workspace wherever these instructions mention `FabricIQ-Handson-Shared`. Reference figures are from the official Microsoft Learn lab [Build a Fabric data agent with an ontology](https://microsoftlearning.github.io/mslearn-fabric/Instructions/Labs/28-build-data-agent-ontology.html). UI labels may vary; use your assigned `_User<NN>` suffix. All screenshot files used here are stored in `sessions/images`.
 
 ---
 
@@ -40,8 +40,8 @@ You connect it to **your own** ontology from Session 2: `LamnaHealthcareOntology
 3. Name it **`LamnaHealthcareAgent_<UserNN>`** (e.g. `LamnaHealthcareAgent_User99`) and select **Create**.
 4. The agent opens with an **Explorer** pane on the left and a **chat** pane on the right.
 
-![LamnaHealthcareAgent_User99 open in the data agent configuration view](images/s3-data-agent.png)
-*Figure (live capture): `LamnaHealthcareAgent_User99` in configuration view — the toolbar has **Add data**, **Agent instructions**, **Test data agent**, and **Publish**; the Explorer shows no data source added yet.*
+![LamnaHealthcareAgent_User99 with no data added and the Add data menu open to Data source](images/s3-user99-add-data-menu.png)
+*Figure (live capture): The new agent before a source is added. Use **Add data → Data source** to begin the next step.*
 
 > Confirm the name includes **your** username.
 
@@ -53,6 +53,12 @@ You connect it to **your own** ontology from Session 2: `LamnaHealthcareOntology
 2. In the search box, type **`LamnaHealthcareOntology_<UserNN>`** — be sure to pick **your own** ontology, not another participant's.
 3. Select it and select **Add**.
 4. In the **Explorer** pane, verify all five entity types appear: Hospital, Department, Room, Patient, VitalSignEquipment.
+
+![OneLake catalog with LamnaHealthcareOntology_User99 selected as the data source](images/s3-user99-select-ontology.png)
+*Figure (live capture): Selecting your own ontology before choosing **Add** (steps 2–3).*
+
+![Data agent Explorer showing Department, Hospital, Patient, Room, and VitalSignEquipment under the User99 ontology](images/s3-user99-ontology-entities.png)
+*Figure (live capture): All five entity types are available after adding the ontology (step 4).*
 
 ---
 
@@ -82,6 +88,9 @@ For ontology data sources, instructions are the **only** tuning mechanism (examp
 
 3. Close the instructions pane.
 
+![Agent instructions pane showing Lamna Healthcare terminology, scope, and Support group by in GQL](images/s3-user99-agent-instructions.png)
+*Figure (live capture): The User99 agent instructions with the ICU terminology and supported question scope entered.*
+
 ---
 
 ## 3.4 Test with natural-language questions
@@ -89,7 +98,7 @@ For ontology data sources, instructions are the **only** tuning mechanism (examp
 Ask each question in the chat pane. After each answer, expand the **steps** dropdown to see the entity types/relationships used and the generated **GQL** query.
 
 ![Chat response with the steps dropdown expanded showing the generated GQL query](images/28-GQL-generated.png)
-*Figure: Expanding the steps under an answer reveals the GQL the agent generated.*
+*Figure (reference): Expanding the steps under an answer reveals the GQL the agent generated.*
 
 1. `How many ICU beds are occupied right now?`
    - Expect the agent to filter Room by the ICU Department and check occupancy.
@@ -105,6 +114,12 @@ Ask each question in the chat pane. After each answer, expand the **steps** drop
    - Review which departments actually have equipment. *(Start broad, then refine — a key data-agent skill.)*
 6. `Which department has the most patients now?`
    - Expect a ranked result (tests aggregation).
+
+![User99 agent analyzing the ontology for the question How many ICU beds are occupied right now with details expanded](images/s3-user99-icu-test-progress.png)
+*Figure (live capture): The first test question while the agent is analyzing the ontology. This is an in-progress view, not the final answer or expanded GQL.*
+
+![User99 agent answering There are 3 ICU beds occupied right now with one completed step](images/s3-user99-icu-test-answer.png)
+*Figure (live capture): The completed response to the first test question reports three occupied ICU beds for this sample-data run. Expand **1 step completed** to inspect the underlying query.*
 
 > **Tip:** When the agent misreads a term, return to **Agent instructions** and add a clarifying definition — that's how you tune behavior over time.
 
